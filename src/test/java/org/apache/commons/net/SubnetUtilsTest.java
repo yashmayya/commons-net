@@ -29,6 +29,12 @@ import junit.framework.TestCase;
 @SuppressWarnings("deprecation") // deliberate use of deprecated methods
 public class SubnetUtilsTest extends TestCase {
 
+    public void testClassEAddresses() {
+        final SubnetUtils utils = new SubnetUtils("240.0.0.0/4");
+        final SubnetInfo info = utils.getInfo();
+        assertTrue(info.isInRange("240.0.0.0"));
+    }
+
     public void testAddresses() {
         final SubnetUtils utils = new SubnetUtils("192.168.0.1/29");
         final SubnetInfo info = utils.getInfo();
